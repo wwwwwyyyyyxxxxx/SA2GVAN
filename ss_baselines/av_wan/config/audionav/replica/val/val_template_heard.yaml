@@ -1,0 +1,16 @@
+BASE_TASK_CONFIG_PATH: "configs/audionav/av_wan/replica/audiogoal_val_multiple_heard.yaml"
+NUM_PROCESSES: 1
+SENSORS: ["DEPTH_SENSOR"]
+TEST_EPISODE_COUNT: 500
+VIDEO_OPTION: []
+VISUALIZATION_OPTION: []
+ENCODE_DEPTH: False
+SOURCE_SOUND_IDS_PATH: "data/sounds/sound_ids_1s_all_not_merge_train.npy"
+TRAINER_NAME: "SA2AVWanTrainer"
+ENV_NAME: "SA2MapNavEnv"
+SIMULATOR_GPU_ID: 0
+TORCH_GPU_ID: 0
+
+EVAL:
+  SPLIT: "val_multiple"
+  USE_CKPT_CONFIG: True

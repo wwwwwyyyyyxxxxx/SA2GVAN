@@ -1,0 +1,20 @@
+BASE_TASK_CONFIG_PATH: "configs/audionav/av_nav/replica/audiogoal_val_multiple.yaml"
+NUM_PROCESSES: 1
+SENSORS: ["DEPTH_SENSOR"]
+TEST_EPISODE_COUNT: 1000
+VIDEO_OPTION: []
+VISUALIZATION_OPTION: []
+ENV_NAME: "SA2AudioNavRLEnv"
+TRAINER_NAME: "SA2AVNavTrainer"
+feature_dir: data/sounds/1s_all
+SOURCE_SOUND_IDS_PATH: "data/sounds/sound_ids_1s_all_not_merge_train.npy"
+feature_type: 1
+TORCH_GPU_ID: 0
+SIMULATOR_GPU_ID: 0
+is_TEST: True
+EVAL:
+  SPLIT: "val_multiple_unheard"
+  USE_CKPT_CONFIG: True
+AUDIO_NOISE_LEVEL: 0.02
+DISTRACTOR_SOUND_DIR: data/sounds/1s_all_distractor/val
+HAS_DISTRACTOR_SOUND: True

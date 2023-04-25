@@ -1,0 +1,74 @@
+BASE_TASK_CONFIG_PATH: "configs/audionav/av_wan/mp3d/audiogoal_multiple.yaml"
+NUM_PROCESSES: 5
+SENSORS: ["DEPTH_SENSOR"]
+NUM_UPDATES: 40000
+LOG_INTERVAL: 10
+CHECKPOINT_INTERVAL: 100
+VIDEO_OPTION: []
+VISUALIZATION_OPTION: []
+ENCODE_DEPTH: False
+TRAINER_NAME: "SA2AVWanTrainer"
+ENV_NAME: "SA2MapNavEnv"
+SIMULATOR_GPU_ID: 0
+TORCH_GPU_ID: 0
+RL:
+  SUCCESS_REWARD: 10.0
+  SLACK_REWARD: -0.01
+  WITH_TIME_PENALTY: True
+  WITH_DISTANCE_REWARD: True
+  DISTANCE_REWARD_SCALE: 0.25
+  WITH_PREDICTION_REWARD: False
+  GOAL_PREDICTION_SCALE: 1.0
+
+  PPO:
+    # ppo params
+    clip_param: 0.1
+    ppo_epoch: 4
+    num_mini_batch: 1
+    value_loss_coef: 0.5
+    entropy_coef: 0.02
+    lr: 2.5e-4
+    eps: 1e-5
+    max_grad_norm: 0.5
+    # decide the length of history that ppo encodes
+    num_steps: 150
+    hidden_size: 512
+    use_gae: True
+    gamma: 0.99
+    tau: 0.95
+    use_linear_clip_decay: True
+    use_linear_lr_decay: True
+    use_exponential_lr_decay: False
+    exp_decay_lambda: 5.0
+    # window size for calculating the past rewards
+    reward_window_size: 50
+
+    is_visual_encode: False # if encode visual image to feature to the pipeline
+    is_classify: True
+    is_visual_classify: False
+    is_regression: True
+    is_against: False
+    is_help_classify: False
+    lambda_regressor: 10.0
+    lambda_classifier: 1.0
+    lambda_classifier_entropy: 0.0
+    not_against_step_list: []
+    is_reshape_groundtruth_loss: False
+    use_buffer_train: False
+    use_buffer_more: False
+    buffer_maxlen: 10000
+    train_batch: 512
+    classifier_num_layers: 4
+    load_ckpt: 0
+    reg_behind: True
+    classifier_behind: False
+    double_ear: False
+    classifier_lr: 2.5e-4
+    normalize_config: spectralnorm
+    lambda_p_method: "sigmoid"
+
+    use_gt_cmap: True
+    is_confidence: False
+AUDIO_NOISE_LEVEL: 0.05
+DISTRACTOR_SOUND_DIR: data/sounds/1s_all_distractor/train
+HAS_DISTRACTOR_SOUND: True
