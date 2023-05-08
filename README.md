@@ -1,7 +1,9 @@
 Learning Semantic-Agnostic and Spatial-Aware Representation for Generalizable Visual-Audio Navigation
 --------------------------------------------------------------------------------
 
-Pytorch implementation of the RAL 2023 paper [Learning Semantic-Agnostic and Spatial-Aware Representation for Generalizable Visual-Audio Navigation](http://arxiv.org/abs/2304.10773)
+Pytorch implementation of the RAL 2023 paper [Learning Semantic-Agnostic and Spatial-Aware Representation for Generalizable Visual-Audio Navigation](http://arxiv.org/abs/2304.10773) 
+
+[[project page]](https://sites.google.com/view/sasavan/) [[video]](https://youtu.be/cbNHeKjo3k4)
 
 
 
