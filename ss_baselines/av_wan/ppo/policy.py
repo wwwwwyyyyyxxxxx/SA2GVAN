@@ -388,7 +388,7 @@ class SA2AudioNavBaselinePolicy(Policy):
         return value, action, action_log_probs, rnn_hidden_states, distribution, predicted_labels, predicted_x_y
 
     def get_value(self, observations, rnn_hidden_states, prev_actions, masks, lambda_grad=1.0):
-        features, _, _, _, _, _, _ = self.net(observations, rnn_hidden_states, prev_actions, masks, lambda_grad=lambda_grad)
+        features, _, _, _ = self.net(observations, rnn_hidden_states, prev_actions, masks, lambda_grad=lambda_grad)
         return self.critic(features)
 
     def evaluate_actions(self, observations, rnn_hidden_states, prev_actions, masks, action, lambda_grad=1.0):

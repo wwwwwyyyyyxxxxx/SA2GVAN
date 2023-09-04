@@ -247,7 +247,7 @@ class SA2AudioNavBaselinePolicy(Policy):
         action_log_probs = distribution.log_probs(action)
         distribution_entropy = distribution.entropy().mean()
 
-        return value, action_log_probs, distribution_entropy, rnn_hidden_states, predicted_labels, predicted_rot, None, None, None
+        return value, action_log_probs, distribution_entropy, rnn_hidden_states, predicted_labels, predicted_rot
 
 
 class SA2AudioNavBaselineNet(Net):

@@ -732,7 +732,7 @@ class SA2PPOTrainer(BaseRLTrainer):
 
         rollouts.compute_returns(next_value, ppo_cfg.use_gae, ppo_cfg.gamma, ppo_cfg.tau)
 
-        value_loss, action_loss, dist_entropy, classifier_loss, classifier_entropy, classifier_acc, regressor_loss, _, _, _= \
+        value_loss, action_loss, dist_entropy, classifier_loss, classifier_entropy, classifier_acc, regressor_loss = \
             self.agent.update(rollouts, lambda_grad=lambda_grad)
 
         rollouts.after_update()

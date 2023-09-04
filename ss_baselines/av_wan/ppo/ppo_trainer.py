@@ -799,9 +799,6 @@ class SA2PPOTrainer(BaseRLTrainer):
                 distributions,
                 _,
                 _,
-                _,
-                _,
-                _,
             ) = self.actor_critic.act(step_observation, rollouts.recurrent_hidden_states[rollouts.step],
                                       rollouts.prev_actions[rollouts.step], rollouts.masks[rollouts.step])
         pth_time += time.time() - t_sample_action
@@ -1457,7 +1454,7 @@ class SA2PPOTrainer(BaseRLTrainer):
         self.device = (
             torch.device("cuda", self.config.TORCH_GPU_ID) if torch.cuda.is_available() else torch.device("cpu"))
         # Map location CPU is almost always better than mapping to a CUDA device.
-        
+
         checkpoint_path = "/data/AudioVisual/sound-spaces/data/pretrained_weights/audionav/av_wan/replica/unheard.pth"
         ckpt_dict = self.load_checkpoint(checkpoint_path, map_location="cpu")
 
